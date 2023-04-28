@@ -1,0 +1,26 @@
+<% if @symbol %>
+    <% if @coin["Response"] %>
+        <h1 class="text-danger" style="text-align: center;">The Crypto Symbol <%= @symbol %> does not exist. Please Try again... </h1>
+    <% else %>
+        <div class="container bg-success bg-gradient text-white">
+            <% @coin["DISPLAY"].each do |key, value| %>
+                <h1 style="font-size: 100px" > <%= key %> </h1>
+                Price: <%= value["USD"]["PRICE"] %> <br/>
+                24h High: <%= value["USD"]["HIGHDAY"] %> <br />
+                24h Low: <%= value["USD"]["LOWDAY"] %> <br />
+                MarketCap: <%= value["USD"]["MKTCAP"] %> <br /><br />
+            <% end %>
+        </div>
+    <% end %> 
+
+<% else %>
+        <h1 class="text-danger" style="text-align: center;">Enter a crypto symbol to display a coin. </h1>
+<% end %>
+  
+           
+
+    
+
+
+
+

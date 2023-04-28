@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #F37335;">
+  <div class="container-fluid">
+    <%= link_to "Crypto News", root_path, class:"navbar-brand" %>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+     
+         <li class="nav-item">
+            <%= link_to 'Get Prices', prices_path, class:"nav-link" %>
+        </li>
+
+    
+      </ul>
+        <%= form_tag home_prices_path, :method => "POST", class:"d-flex" do %>
+            <%= text_field_tag 'sym', nil, placeholder: "Enter Crypto", class:"form-control me-2" %>
+            <%= submit_tag "Search", class:"btn btn-success" %>
+        <% end %>
+     
+    </div>
+  </div>
+</nav>

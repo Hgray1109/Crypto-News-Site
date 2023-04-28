@@ -1,0 +1,56 @@
+
+<% if @prices["DISPLAY"] %>
+    <table class="table table-dark table-striped-columns table-bordered table-hover">
+    <thead >
+        <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">High</th>
+        <th scope="col">Low</th>
+        <th scope="col">MarketCap</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @prices["DISPLAY"].each do |key, value| %>
+        <tr>
+        <td > <%= key %> </td>
+        <td ><%= value["USD"]["PRICE"] %> </td>
+        <td ><%= value["USD"]["HIGHDAY"] %></td>
+        <td ><%= value["USD"]["LOWDAY"] %></td>
+        <td ><%= value["USD"]["MKTCAP"] %></td>
+        </tr>
+        <% end %>
+    </tbody>
+
+</table>
+<% else %>
+        <h3 class="text-danger" style="text-align: center;">Cannont retreive Crypto data. Please try again later. </h3>
+<% end %>
+
+<br/><br/>
+
+<% if @news["Data"] %>
+    <div class="container">
+        <div class="row">
+
+            <% for x in @news["Data"] %>
+                <div class="col-sm" style="padding-bottom: 25px;">
+                    <div class="card h-100" style="width: 18rem; border-color: #F37335;">
+                        <img src="<%= x["imageurl"] %>" class="card-img-top" alt="<%= x["source"] %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= x["title"] %></h5>
+                            <p class="card-text" style=" display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;  text-overflow: ellipsis;"><%= x["body"] %></p>
+                            <a href="<%= x["url"] %>" class="btn btn-success", target="_blank">Read More...</a>
+                        </div>
+                        <br/>
+                    </div>
+                <br/>
+                </div>
+            <% end %>
+        </div>
+        <br/><br/>
+    </div>
+<% else %>
+        <h3 class="text-danger" style="text-align: center;">Cannont retreive news articles. Please try again later. </h3>
+<% end %>
